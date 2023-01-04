@@ -1,48 +1,53 @@
+/*---COULEURS---*/
 /*---POLICES---*/
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-h1 {
+.subheading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 700;
+  color: #000000;
   font-size: 24px;
-}
-
-h2 {
-  font-weight: 700;
-  font-size: 24px;
-}
-
-h3 {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-p {
-  font-weight: 300;
 }
 
 .minortext {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
+  color: #000000;
 }
-
 .minortext--white {
   color: #ffffff;
+}
+
+.menu__title {
+  font-family: Shrikhand, Arial, Helvetica, sans-serif;
+  font-size: 27px;
+}
+
+a {
+  text-decoration: none;
 }
 
 /*---HEADER---*/
 .header {
   width: 100%;
   height: 60px;
-  display: flex;
+  display: flex; /*repeat rule*/
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.header__logo {
+  width: 150px;
+  height: 27px;
 }
 
-.header__logo {
-  width: 200px;
-  height: 35px;
+.backarrow {
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 /*---BANNER---*/
@@ -55,34 +60,104 @@ p {
   justify-content: center;
   align-items: center;
 }
+.locationbanner__icon {
+  margin-right: 15px;
+}
 
 .infobanner {
   box-sizing: border-box;
   width: 100%;
-  height: 250px;
-  display: flex;
+  height: 290px;
+  display: flex; /*repeat rule*/
   flex-direction: column;
   text-align: center;
   justify-content: space-around;
-  padding: 40px 45px 40px 45px;
+  align-items: center;
+  padding: 40px 45px 0px 45px;
   background-color: #f7f7f7;
+}
+.infobanner__heading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+}
+
+.btn {
+  background-image: linear-gradient(175deg, #FF79DA, #9356DC);
+  width: 70%;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0px 5px 10px #dedede;
 }
 
 .functionbanner {
   box-sizing: border-box;
   width: 100%;
   height: 450px;
+  display: flex; /*repeat rule*/
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px 20px 60px 20px;
+}
+.functionbanner__container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 20px 20px 40px 20px;
+  align-items: center;
+  height: 100%;
+  margin-top: 10px;
+}
+.functionbanner__step {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 95%;
+  height: 75px;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  position: relative;
+  box-shadow: 0px 5px 10px #dedede;
+}
+.functionbanner__step .minortext--white {
+  background-color: #9356DC;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 20px;
+  position: absolute;
+  left: -12px;
+}
+.functionbanner__step:hover {
+  background-color: #F4EDFE;
+}
+.functionbanner__step:hover .functionbanner__icon {
+  color: #9356DC;
+}
+.functionbanner__icon {
+  color: #7e7e7e;
+  padding: 0px 25px 0px 25px;
+}
+
+.menubanner {
+  width: 100%;
+}
+.menubanner__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 /*---RESTOS---*/
 .restos {
   box-sizing: border-box;
   background-color: #f7f7f7;
-  display: flex;
+  display: flex; /*repeat rule*/
   flex-direction: column;
   justify-content: space-around;
   padding: 50px 20px 50px 20px;
@@ -92,10 +167,11 @@ p {
   width: 100%;
   height: 250px;
   background-color: #ffffff;
-  margin: 10px 0px 10px 0px;
+  margin-top: 20px;
   border-radius: 20px;
+  position: relative;
+  box-shadow: 0px 5px 10px #dedede;
 }
-
 .cardresto__img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -104,7 +180,6 @@ p {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-
 .cardresto_new { /*think about how this could be combined with "minortext"*/
   color: #107A58;
   background-color: #99E2D0;
@@ -115,6 +190,34 @@ p {
   border-radius: 2px;
   font-weight: 400;
   font-size: 13px;
+  position: absolute;
+  top: 17px;
+  right: 17px;
+}
+.cardresto__btnlike {
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  color: transparent;
+  font-size: 25px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.cardresto__btnlike:hover {
+  background-image: linear-gradient(175deg, #FF79DA, #9356DC);
+}
+.cardresto__heading {
+  padding: 15px 0px 8px 15px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 18px;
+}
+.cardresto__subheading {
+  padding-left: 15px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #000000;
 }
 
 /*---FOOTER---*/
@@ -134,7 +237,7 @@ p {
 }
 
 .footer__list {
-  display: flex;
+  display: flex; /*repeat rule*/
   flex-direction: column;
   justify-content: space-between;
   height: 50%;
@@ -143,4 +246,69 @@ p {
 .footer__icon {
   width: 20px;
   padding-right: 5px;
+}
+
+/*---MENU---*/
+.menu {
+  margin-top: -50px;
+  z-index: 2;
+  position: relative;
+  height: auto;
+  background-color: #f7f7f7;
+  padding: 0px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.menu__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0px 30px 0px;
+}
+.menu__course {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+.menu__card {
+  box-sizing: border-box;
+  width: 100%;
+  height: 70px;
+  padding: 10px 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #ffffff;
+  margin: 10px 0px 10px 0px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px #dedede;
+  position: relative;
+}
+
+.menucard__price {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+}
+
+.menucard__heading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 18px;
+}
+
+.menucard__subheading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #000000;
+}
+
+.container__btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

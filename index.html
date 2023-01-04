@@ -21,61 +21,60 @@
 <!--BANNER-->
             <section class="banner">
                 <aside class="locationbanner">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p class="minortext">Paris, Belleville</p>                                                        
+                    <i class="locationbanner__icon fa-solid fa-location-dot"></i>
+                    <input type="text" placeholder="Paris, Belleville"/>                                                    
                 </aside>
                 <article class="infobanner">
-                    <h1>Réservez le menu qui vous convient</h1>                                     
+                    <h1 class="infobanner__heading">Réservez le menu qui vous convient</h1>                                     
                     <p>Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>     
-                    <button>Explorer nos restaurants</button>
+                    <button class="btn minortext--white">Explorer nos restaurants</button>
                 </article>
                 <article class="functionbanner">
-                    <h2>Fonctionnement</h2>                                                         
-                    <button>
-                        <p>1</p>
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                        <p>Choisissez un restaurant</p>
-                    </button>
-                    <button>
-                        <p>2</p>
-                        <i class="fa-solid fa-list-ul"></i>
-                        <p>Composez votre menu</p>
-                    </button>
-                    <button>
-                        <p>3</p>
-                        <i class="fa-solid fa-store"></i>
-                        <p>Dégustez au restaurant</p>
-                    </button>
+                    <h2 class="subheading">Fonctionnement</h2> 
+                    <div class="functionbanner__container">
+                        <div class="functionbanner__step">
+                            <p class="minortext--white">1</p>
+                            <p class="minortext"><i class="functionbanner__icon fa-solid fa-mobile-screen-button"></i>Choisissez un restaurant</p>
+                        </div>
+                        <div class="functionbanner__step">
+                            <p class="minortext--white">2</p>
+                            <p class="minortext"><i class="functionbanner__icon fa-solid fa-list-ul"></i>Composez votre menu</p>
+                        </div>
+                        <div class="functionbanner__step">
+                            <p class="minortext--white">3</p>
+                            <p class="minortext"><i class="functionbanner__icon fa-solid fa-store"></i>Dégustez au restaurant</p>
+                        </div>
+                    </div>                                                        
                 </article>
             </section>
 <!--RESTAURANTS-->
             <section class="restos">
-                <h2>Restaurants</h2>
-                <a class="cardresto">
+                <h2 class="subheading">Restaurants</h2>
+                <a href="#" class="cardresto">
                     <img src="images/restaurants/la_palette_du_gout.jpg" alt="La Palette du Goût" class="cardresto__img"/>
                     <p class="cardresto_new">Nouveau</p>
-                    <h3>La palette du goût</h3>
-                    <p>Ménilmontant</p>
-                    <i class="fa-thin fa-heart"></i>                                                <!--icon not loading-->
+                    <h3 class="cardresto__heading">La palette du goût</h3>
+                    <p class="cardresto__subheading">Ménilmontant</p>
+                    <i class="cardresto__btnlike fa-solid fa-heart"></i>                                                <!--icon not loading-->
                 </a>
-                <a class="cardresto">
+                <a href="#" class="cardresto">
                     <img src="images/restaurants/la_note_enchantee.jpg" alt="La Note Enchantée" class="cardresto__img"/>
                     <p class="cardresto_new">Nouveau</p>
-                    <h3>La note enchantée</h3>
-                    <p>Charonne</p>
-                    <i class="fa-thin fa-heart"></i>
+                    <h3 class="cardresto__heading">La note enchantée</h3>
+                    <p class="cardresto__subheading">Charonne</p>
+                    <i class="cardresto__btnlike fa-solid fa-heart"></i>
                 </a>
-                <a class="cardresto">
+                <a href="#" class="cardresto">
                     <img src="images/restaurants/a_la_francaise.jpg" alt="A la Française" class="cardresto__img"/>
-                    <h3>À la française</h3>
-                    <p>Cité Rouge</p>
-                    <i class="fa-thin fa-heart"></i>
+                    <h3 class="cardresto__heading">À la française</h3>
+                    <p class="cardresto__subheading">Cité Rouge</p>
+                    <i class="cardresto__btnlike fa-solid fa-heart"></i>
                 </a>
-                <a class="cardresto">
+                <a href="#" class="cardresto">
                     <img src="images/restaurants/le_délice_des_sens.jpg" alt="Le Délice des Sens" class="cardresto__img"/>
-                    <h3>Le délice des sens</h3>
-                    <p>Folie-Méricourt</p>
-                    <i class="fa-thin fa-heart"></i>
+                    <h3 class="cardresto__heading">Le délice des sens</h3>
+                    <p class="cardresto__subheading">Folie-Méricourt</p>
+                    <i class="cardresto__btnlike fa-solid fa-heart"></i>
                 </a>
             </section>
         </main>
@@ -84,14 +83,14 @@
             <h2 class="footer__logo">ohmyfood</h2>
             <ul class="footer__list">
                 <li class="minortext--white">
-                    <i class="fa-solid fa-utensils footer__icon"></i>
-                    Proposer un restaurant
+                    <a href="#" class="minortext--white"><i class="fa-solid fa-utensils footer__icon"></i>
+                        Proposer un restaurant</a>
                 </li>
                 <li class="minortext--white">
-                    <i class="fa-solid fa-handshake-angle footer__icon"></i>
-                    Devenir partenaire
-                    <li class="minortext--white">Mentions légales</li>
-                    <li class="minortext--white">Contact</li>
+                    <a href="#" class="minortext--white"><i class="fa-solid fa-handshake-angle footer__icon"></i>
+                    Devenir partenaire</a>
+                    <li class="minortext--white"><a href="#" class="minortext--white">Mentions légales</a></li>
+                    <li class="minortext--white"><a href="mailto:NOMDUMAIL@MAIL.COM" class="minortext--white">Contact</a></li>
                 </li>
             </ul>
         </footer>

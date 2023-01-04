@@ -1,49 +1,77 @@
+/*---COULEURS---*/
+$couleur-primaire: #9356DC;
+$couleur-secondaire: #FF79DA;
+$couleur-tertiaire: #99E2D0;
+$couleur-fond2: #f7f7f7;
+$couleur-textblack: #000000;
+$couleur-shadow: #dedede;
+
+
+@mixin shadow {
+    box-shadow: 0px 5px 10px $couleur-shadow;
+}
 /*---POLICES---*/
+
+
+@mixin light-text-300 {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: $couleur-textblack;
+}
+
+@mixin regular-text-700($font-size: 24px) {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: $couleur-textblack;
+    font-size: $font-size;
+}
 
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-h1 {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-h2 {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-h3 {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-p {
-    font-weight: 300;
+.subheading {
+    @include regular-text-700();
 }
 
 .minortext {
     font-weight: 400;
-    font-size: 15px;
+    font-size: 16px;
+    color: $couleur-textblack;
+    &--white {
+        color: #ffffff;
+    }
 }
 
-.minortext--white {
-    color: #ffffff;
+.menu__title {
+    font-family: Shrikhand, Arial, Helvetica, sans-serif;
+    font-size: 27px;
+}
+
+a {
+    text-decoration: none;
 }
 
 /*---HEADER---*/
 .header {
     width: 100%;
     height: 60px;
-    display: flex;
+    display: flex;                      /*repeat rule*/
     justify-content: center;
     align-items: center;
+    position: relative;
+    &__logo {
+        width: 150px;
+        height: 27px;
+    }
 }
 
-.header__logo {
-    width: 200px;
-    height: 35px;
+.backarrow
+{
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 /*---BANNER---*/
@@ -55,35 +83,102 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    &__icon {
+        margin-right: 15px;
+    }
 }
 
 .infobanner {
     box-sizing: border-box;
     width: 100%;
-    height: 250px;
-    display: flex;
+    height: 290px;
+    display: flex;                      /*repeat rule*/
     flex-direction: column;
     text-align: center;
     justify-content: space-around;
-    padding: 40px 45px 40px 45px;
-    background-color: #f7f7f7;
+    align-items: center;
+    padding: 40px 45px 0px 45px;
+    background-color: $couleur-fond2;
+    &__heading {
+        @include regular-text-700();
+    }
+}
+
+.btn {
+    background-image: linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+    width: 70%;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    @include shadow();
+
 }
 
 .functionbanner {
     box-sizing: border-box;
     width: 100%;
     height: 450px;
-    display: flex;
+    display: flex;                      /*repeat rule*/
     flex-direction: column;
     justify-content: space-around;
-    padding: 20px 20px 40px 20px;
+    padding: 50px 20px 60px 20px;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        margin-top: 10px;
+    }
+    &__step {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 95%;
+        height: 75px;
+        border-radius: 20px;
+        background-color: $couleur-fond2;
+        position: relative;
+        @include shadow();
+        .minortext--white {
+            background-color: $couleur-primaire;
+            box-sizing: border-box;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            padding-top: 5px;
+            border-radius: 20px;
+            position: absolute;
+            left: -12px;
+        }
+        &:hover {
+            background-color: #F4EDFE;
+            .functionbanner__icon {
+                color: $couleur-primaire;
+            }
+        }
+    }
+    &__icon {
+        color: #7e7e7e;
+        padding: 0px 25px 0px 25px;
+    }
+}
+
+.menubanner {
+    width: 100%;
+    &__img {
+        object-fit: cover;
+        width: 100%;
+    }
 }
 
 /*---RESTOS---*/
 .restos {
     box-sizing: border-box;
-    background-color: #f7f7f7;
-    display: flex;
+    background-color: $couleur-fond2;
+    display: flex;                      /*repeat rule*/
     flex-direction: column;
     justify-content: space-around;
     padding: 50px 20px 50px 20px;
@@ -93,27 +188,53 @@ p {
     width: 100%;
     height: 250px;
     background-color: #ffffff;
-    margin: 10px 0px 10px 0px;
+    margin-top: 20px;
     border-radius: 20px;
+    position: relative;
+    @include shadow();
+    &__img {
+        object-fit: cover;
+        width: 100%;
+        height: 70%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    &_new {                                    /*think about how this could be combined with "minortext"*/
+        color: #107A58;
+        background-color: $couleur-tertiaire;
+        width: fit-content;
+        padding: 7px 15px 7px 15px;
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: 13px;
+        position: absolute;
+        top: 17px;
+        right: 17px;
+    }
+    &__btnlike {
+        position: absolute;
+        top: 200px;
+        right: 20px;
+        color: transparent;
+        font-size: 25px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        &:hover {
+            background-image: linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+        }
+    }
+    &__heading {
+        padding: 15px 0px 8px 15px;
+        @include regular-text-700(18px)
+    }
+    &__subheading {
+        padding-left: 15px;
+        @include light-text-300;
+    }
 }
 
-.cardresto__img {
-    object-fit: cover;
-    width: 100%;
-    height: 70%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
 
-.cardresto_new {                                    /*think about how this could be combined with "minortext"*/
-    color: #107A58;
-    background-color: #99E2D0;
-    width: fit-content;
-    padding: 7px 15px 7px 15px;
-    border-radius: 2px;
-    font-weight: 400;
-    font-size: 13px;
-}
+
 
 /*---FOOTER---*/
 .footer {
@@ -132,7 +253,7 @@ p {
 }
 
 .footer__list {
-    display: flex;
+    display: flex;                      /*repeat rule*/
     flex-direction: column;
     justify-content: space-between;
     height: 50%;
@@ -142,3 +263,65 @@ p {
     width: 20px;
     padding-right: 5px;
 }
+
+/*---MENU---*/
+.menu {
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
+    height: auto;
+    background-color: $couleur-fond2;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0px 30px 0px;
+    }
+    &__course {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    &__card {
+        box-sizing: border-box;
+        width: 100%;
+        height: 70px;
+        padding: 10px 0px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #ffffff;
+        margin: 10px 0px 10px 0px;
+        border-radius: 15px;
+        @include shadow();
+        position: relative;
+    }
+}
+
+.menucard__price {
+    position: absolute;
+    right: 20px;
+    bottom: 15px
+}
+
+.menucard__heading {
+    @include regular-text-700(18px);
+}
+
+.menucard__subheading {
+    @include light-text-300;
+}
+
+.container__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
