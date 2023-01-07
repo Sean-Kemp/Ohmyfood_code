@@ -1,30 +1,5 @@
 /*---COULEURS---*/
 /*---POLICES---*/
-body {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-}
-
-.subheading {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  color: #000000;
-  font-size: 24px;
-}
-
-.minortext {
-  font-weight: 400;
-  font-size: 16px;
-  color: #000000;
-}
-.minortext--white {
-  color: #ffffff;
-}
-
-.menu__title {
-  font-family: Shrikhand, Arial, Helvetica, sans-serif;
-  font-size: 27px;
-}
-
 a {
   text-decoration: none;
 }
@@ -41,6 +16,12 @@ a {
 .header__logo {
   width: 150px;
   height: 27px;
+}
+.header__arrow {
+  color: #000;
+}
+.header__arrow:hover {
+  color: #99E2D0;
 }
 
 .backarrow {
@@ -62,6 +43,36 @@ a {
 }
 .locationbanner__icon {
   margin-right: 15px;
+  margin-left: 55px;
+}
+.locationbanner__field {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  border: none;
+  background-color: transparent;
+}
+.locationbanner__field::-moz-placeholder {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+.locationbanner__field:-ms-input-placeholder {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+.locationbanner__field::placeholder {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+.locationbanner__field:focus {
+  outline: none;
 }
 
 .infobanner {
@@ -82,15 +93,28 @@ a {
   color: #000000;
   font-size: 24px;
 }
+.infobanner__text {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #000000;
+  font-size: 16px;
+}
 
 .btn {
   background-image: linear-gradient(175deg, #FF79DA, #9356DC);
-  width: 70%;
+  width: 80%;
   height: 50px;
   border: none;
   border-radius: 30px;
   margin-bottom: 40px;
   box-shadow: 0px 5px 10px #dedede;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFF;
+}
+.btn--small {
+  width: 60%;
 }
 
 .functionbanner {
@@ -102,6 +126,12 @@ a {
   justify-content: space-around;
   padding: 50px 20px 60px 20px;
 }
+.functionbanner__heading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+}
 .functionbanner__container {
   display: flex;
   flex-direction: column;
@@ -110,19 +140,36 @@ a {
   height: 100%;
   margin-top: 10px;
 }
-.functionbanner__step {
+
+.functionstep {
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 95%;
+  width: 100%;
   height: 75px;
   border-radius: 20px;
   background-color: #f7f7f7;
   position: relative;
   box-shadow: 0px 5px 10px #dedede;
 }
-.functionbanner__step .minortext--white {
+.functionstep:hover {
+  background-color: #F4EDFE;
+}
+.functionstep:hover .functionstep__icon {
+  color: #9356DC;
+}
+.functionstep__text {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+.functionstep__number {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFF;
   background-color: #9356DC;
   box-sizing: border-box;
   width: 25px;
@@ -133,15 +180,9 @@ a {
   position: absolute;
   left: -12px;
 }
-.functionbanner__step:hover {
-  background-color: #F4EDFE;
-}
-.functionbanner__step:hover .functionbanner__icon {
-  color: #9356DC;
-}
-.functionbanner__icon {
+.functionstep__icon {
   color: #7e7e7e;
-  padding: 0px 25px 0px 25px;
+  padding: 0px 25px 0px 35px;
 }
 
 .menubanner {
@@ -160,41 +201,49 @@ a {
   display: flex; /*repeat rule*/
   flex-direction: column;
   justify-content: space-around;
-  padding: 50px 20px 50px 20px;
+  padding: 60px 20px 60px 20px;
+}
+.restos__heading {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
 }
 
-.cardresto {
+.card {
   width: 100%;
-  height: 250px;
+  height: auto;
   background-color: #ffffff;
   margin-top: 20px;
   border-radius: 20px;
   position: relative;
   box-shadow: 0px 5px 10px #dedede;
 }
-.cardresto__img {
+.card__img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  height: 70%;
+  height: 170px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.cardresto_new { /*think about how this could be combined with "minortext"*/
+.card__new {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
   color: #107A58;
+  /*think about how this could be combined with "minortext"*/
   background-color: #99E2D0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 7px 15px 7px 15px;
   border-radius: 2px;
-  font-weight: 400;
-  font-size: 13px;
   position: absolute;
   top: 17px;
   right: 17px;
 }
-.cardresto__btnlike {
+.card__btnlike {
   position: absolute;
   top: 200px;
   right: 20px;
@@ -203,21 +252,34 @@ a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
-.cardresto__btnlike:hover {
+.card__btnlike:hover {
   background-image: linear-gradient(175deg, #FF79DA, #9356DC);
 }
-.cardresto__heading {
-  padding: 15px 0px 8px 15px;
+.card__heading {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: #000000;
   font-size: 18px;
+  padding: 15px 0px 8px 15px;
 }
-.cardresto__subheading {
-  padding-left: 15px;
+.card__subheading {
+  padding: 0px 0px 16px 15px;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: #000000;
+  font-size: 16px;
+}
+.card__subheading--underline {
+  padding: 10px 0px 0px 0px;
+}
+.card__price {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
 }
 
 /*---FOOTER---*/
@@ -228,21 +290,27 @@ a {
   background-color: #353535;
   padding: 30px 20px 0px 20px;
 }
-
 .footer__logo {
-  font-family: shrikhand;
+  font-family: Shrikhand, Arial, Helvetica, sans-serif;
+  font-size: 20px;
   color: #ffffff;
-  font-size: 18px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
 }
-
 .footer__list {
   display: flex; /*repeat rule*/
   flex-direction: column;
   justify-content: space-between;
   height: 50%;
 }
-
+.footer__item {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFF;
+}
+.footer__item:hover {
+  color: #99E2D0;
+}
 .footer__icon {
   width: 20px;
   padding-right: 5px;
@@ -268,43 +336,14 @@ a {
   align-items: center;
   padding: 30px 0px 30px 0px;
 }
+.menu__title {
+  font-family: Shrikhand, Arial, Helvetica, sans-serif;
+  font-size: 28px;
+}
 .menu__course {
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
-}
-.menu__card {
-  box-sizing: border-box;
-  width: 100%;
-  height: 70px;
-  padding: 10px 0px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: #ffffff;
-  margin: 10px 0px 10px 0px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 10px #dedede;
-  position: relative;
-}
-
-.menucard__price {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-}
-
-.menucard__heading {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  color: #000000;
-  font-size: 18px;
-}
-
-.menucard__subheading {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #000000;
 }
 
 .container__btn {

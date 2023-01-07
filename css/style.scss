@@ -13,10 +13,11 @@ $couleur-shadow: #dedede;
 /*---POLICES---*/
 
 
-@mixin light-text-300 {
+@mixin light-text-300($font-size: 16px) {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: $couleur-textblack;
+    font-size: $font-size;
 }
 
 @mixin regular-text-700($font-size: 24px) {
@@ -26,26 +27,16 @@ $couleur-shadow: #dedede;
     font-size: $font-size;
 }
 
-body {
+@mixin minor-text-400($font-size: 16px, $color: #000) {
     font-family: Roboto, Arial, Helvetica, sans-serif;
-}
-
-.subheading {
-    @include regular-text-700();
-}
-
-.minortext {
     font-weight: 400;
-    font-size: 16px;
-    color: $couleur-textblack;
-    &--white {
-        color: #ffffff;
-    }
+    font-size: $font-size;
+    color: $color;
 }
 
-.menu__title {
+@mixin menu-title($font-size) {
     font-family: Shrikhand, Arial, Helvetica, sans-serif;
-    font-size: 27px;
+    font-size: $font-size;
 }
 
 a {
@@ -64,10 +55,15 @@ a {
         width: 150px;
         height: 27px;
     }
+    &__arrow {
+        color: #000;
+        &:hover{
+            color: $couleur-tertiaire;
+        }
+    }
 }
 
-.backarrow
-{
+.backarrow {
     font-size: 20px;
     position: absolute;
     top: 20px;
@@ -85,6 +81,18 @@ a {
     align-items: center;
     &__icon {
         margin-right: 15px;
+        margin-left: 55px;
+    }
+    &__field {
+        @include minor-text-400(16px, #000);
+        border: none;
+        background-color: transparent;
+        &::placeholder {
+            @include minor-text-400(16px, #000);
+        }
+        &:focus {
+            outline: none;
+        }
     }
 }
 
@@ -102,16 +110,23 @@ a {
     &__heading {
         @include regular-text-700();
     }
+    &__text {
+        @include light-text-300();
+    }
 }
 
 .btn {
     background-image: linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
-    width: 70%;
+    width: 80%;
     height: 50px;
     border: none;
     border-radius: 30px;
     margin-bottom: 40px;
     @include shadow();
+    @include minor-text-400(16px, #FFF);
+    &--small {
+        width: 60%;
+    }
 
 }
 
@@ -123,6 +138,9 @@ a {
     flex-direction: column;
     justify-content: space-around;
     padding: 50px 20px 60px 20px;
+    &__heading {
+        @include regular-text-700();
+    }
     &__container {
         display: flex;
         flex-direction: column;
@@ -131,38 +149,43 @@ a {
         height: 100%;
         margin-top: 10px;
     }
-    &__step {
-        box-sizing: border-box;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 95%;
-        height: 75px;
-        border-radius: 20px;
-        background-color: $couleur-fond2;
-        position: relative;
-        @include shadow();
-        .minortext--white {
-            background-color: $couleur-primaire;
-            box-sizing: border-box;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            padding-top: 5px;
-            border-radius: 20px;
-            position: absolute;
-            left: -12px;
-        }
-        &:hover {
-            background-color: #F4EDFE;
-            .functionbanner__icon {
-                color: $couleur-primaire;
-            }
+}
+
+.functionstep {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    border-radius: 20px;
+    background-color: $couleur-fond2;
+    position: relative;
+    @include shadow();
+    &:hover {
+        background-color: #F4EDFE;
+        .functionstep__icon {
+            color: $couleur-primaire;
         }
     }
+    &__text {
+    @include minor-text-400(16px, #000)
+    }
+    &__number {
+    @include minor-text-400(16px, #FFF);
+    background-color: $couleur-primaire;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 20px;
+    position: absolute;
+    left: -12px;
+    }
     &__icon {
-        color: #7e7e7e;
-        padding: 0px 25px 0px 25px;
+    color: #7e7e7e;
+    padding: 0px 25px 0px 35px;
     }
 }
 
@@ -181,12 +204,15 @@ a {
     display: flex;                      /*repeat rule*/
     flex-direction: column;
     justify-content: space-around;
-    padding: 50px 20px 50px 20px;
+    padding: 60px 20px 60px 20px;
+    &__heading {
+        @include regular-text-700();
+    }
 }
 
-.cardresto {
+.card {
     width: 100%;
-    height: 250px;
+    height: auto;
     background-color: #ffffff;
     margin-top: 20px;
     border-radius: 20px;
@@ -195,18 +221,16 @@ a {
     &__img {
         object-fit: cover;
         width: 100%;
-        height: 70%;
+        height: 170px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
-    &_new {                                    /*think about how this could be combined with "minortext"*/
-        color: #107A58;
+    &__new {          
+        @include minor-text-400(13px, #107A58);                         /*think about how this could be combined with "minortext"*/
         background-color: $couleur-tertiaire;
         width: fit-content;
         padding: 7px 15px 7px 15px;
         border-radius: 2px;
-        font-weight: 400;
-        font-size: 13px;
         position: absolute;
         top: 17px;
         right: 17px;
@@ -224,17 +248,23 @@ a {
         }
     }
     &__heading {
+        @include regular-text-700(18px);
         padding: 15px 0px 8px 15px;
-        @include regular-text-700(18px)
     }
     &__subheading {
-        padding-left: 15px;
-        @include light-text-300;
+        padding: 0px 0px 16px 15px;
+        @include light-text-300(16px);
+        &--underline {
+            padding: 10px 0px 0px 0px;
+        }
+    }
+    &__price {
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
+        @include regular-text-700(16px)
     }
 }
-
-
-
 
 /*---FOOTER---*/
 .footer {
@@ -243,26 +273,29 @@ a {
     height: 200px;
     background-color: #353535;
     padding: 30px 20px 0px 20px;
+    &__logo {
+        @include menu-title(20px);
+        color: #ffffff;
+        padding-bottom: 24px;
+    }
+    &__list {
+        display: flex;                      /*repeat rule*/
+        flex-direction: column;
+        justify-content: space-between;
+        height: 50%;
+    }
+    &__item {
+        @include minor-text-400(16px, #FFF);
+        &:hover {
+            color: $couleur-tertiaire;
+        }
+    }
+    &__icon {
+        width: 20px;
+        padding-right: 5px;
+    }
 }
 
-.footer__logo {
-    font-family: shrikhand;
-    color: #ffffff;
-    font-size: 18px;
-    padding-bottom: 20px;
-}
-
-.footer__list {
-    display: flex;                      /*repeat rule*/
-    flex-direction: column;
-    justify-content: space-between;
-    height: 50%;
-}
-
-.footer__icon {
-    width: 20px;
-    padding-right: 5px;
-}
 
 /*---MENU---*/
 .menu {
@@ -283,41 +316,15 @@ a {
         align-items: center;
         padding: 30px 0px 30px 0px;
     }
+    &__title {
+        @include menu-title(28px);
+    }
     &__course {
         display: flex;
         flex-direction: column;
         margin-bottom: 25px;
     }
-    &__card {
-        box-sizing: border-box;
-        width: 100%;
-        height: 70px;
-        padding: 10px 0px 10px 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        background-color: #ffffff;
-        margin: 10px 0px 10px 0px;
-        border-radius: 15px;
-        @include shadow();
-        position: relative;
-    }
 }
-
-.menucard__price {
-    position: absolute;
-    right: 20px;
-    bottom: 15px
-}
-
-.menucard__heading {
-    @include regular-text-700(18px);
-}
-
-.menucard__subheading {
-    @include light-text-300;
-}
-
 .container__btn {
     width: 100%;
     display: flex;
