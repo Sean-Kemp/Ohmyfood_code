@@ -107,6 +107,11 @@ a {
   border: none;
   border-radius: 30px;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
   box-shadow: 0px 5px 10px #dedede;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 400;
@@ -115,6 +120,27 @@ a {
 }
 .btn--small {
   width: 60%;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: "";
+  background-image: linear-gradient(355deg, #9b63df, #ff88de);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 400ms;
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px #dbdbdb;
 }
 
 .functionbanner {
@@ -151,10 +177,11 @@ a {
   border-radius: 20px;
   background-color: #f7f7f7;
   position: relative;
+  z-index: 1;
   box-shadow: 0px 5px 10px #dedede;
 }
-.functionstep:hover {
-  background-color: #F4EDFE;
+.functionstep:hover::after {
+  opacity: 1;
 }
 .functionstep:hover .functionstep__icon {
   color: #9356DC;
@@ -183,6 +210,20 @@ a {
 .functionstep__icon {
   color: #7e7e7e;
   padding: 0px 25px 0px 35px;
+}
+.functionstep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F4EDFE;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 250ms;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .menubanner {
@@ -247,13 +288,22 @@ a {
   position: absolute;
   top: 200px;
   right: 20px;
-  color: transparent;
+  color: #FFF;
   font-size: 25px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
-.card__btnlike:hover {
-  background-image: linear-gradient(175deg, #FF79DA, #9356DC);
+.card__btnlike:hover + .card__btnlike--fill {
+  transform: scale(1.2);
+}
+.card__btnlike--fill {
+  background: -webkit-gradient(linear, left bottom, right top, from(#FF79DA), to(#9356DC));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(0);
+  transition: transform 200ms;
+  -webkit-text-stroke-width: 0px;
 }
 .card__heading {
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -350,4 +400,123 @@ a {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  -webkit-animation: end 3s ease-in-out;
+          animation: end 3s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.spinner__circle {
+  stroke: #9356DC;
+  stroke-width: 4;
+  fill: none;
+  -webkit-animation: color 3s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+          animation: color 3s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+.spinner__svg {
+  -webkit-animation: rotate 1.5s linear infinite;
+          animation: rotate 1.5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes color {
+  100%, 0% {
+    stroke: #9356DC;
+  }
+  33% {
+    stroke: #FF79DA;
+  }
+  66% {
+    stroke: #99E2D0;
+  }
+}
+@keyframes color {
+  100%, 0% {
+    stroke: #9356DC;
+  }
+  33% {
+    stroke: #FF79DA;
+  }
+  66% {
+    stroke: #99E2D0;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+@-webkit-keyframes end {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes end {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

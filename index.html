@@ -13,6 +13,11 @@
     </head>
 
     <body>
+        <div class="spinner">
+            <svg viewbox="0 0 100 100" class="spinner__svg">
+                <circle cx="50" cy="50" r="20" class="spinner__circle"></circle>
+            </svg>
+        </div>
 <!--HEADER-->
         <header class="header">
             <img src="images/logo/ohmyfood.png" alt="OhMyFood Logo" class="header__logo" />
@@ -27,7 +32,9 @@
                 <article class="infobanner">
                     <h1 class="infobanner__heading">Réservez le menu qui vous convient</h1>                                     
                     <p class="infobanner__text">Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>     
-                    <button class="btn">Explorer nos restaurants</button>
+                    <a href="#restos" class="btn">
+                        Explorer nos restaurants
+                    </a>
                 </article>
                 <article class="functionbanner">
                     <h2 class="functionbanner__heading">Fonctionnement</h2> 
@@ -48,14 +55,15 @@
                 </article>
             </section>
 <!--RESTAURANTS-->
-            <section class="restos">
+            <section id="restos" class="restos">
                 <h2 class="restos__heading">Restaurants</h2>
                 <a href="#" class="card">
                     <img src="images/restaurants/la_palette_du_gout.jpg" alt="La Palette du Goût" class="card__img"/>
                     <p class="card__new">Nouveau</p>
                     <h3 class="card__heading">La palette du goût</h3>
                     <p class="card__subheading">Ménilmontant</p>
-                    <i class="card__btnlike fa-solid fa-heart"></i>                                                <!--icon not loading-->
+                    <i class="card__btnlike fa-solid fa-heart"></i> 
+                    <i class="card__btnlike--fill card__btnlike fa-solid fa-heart"></i>
                 </a>
                 <a href="#" class="card">
                     <img src="images/restaurants/la_note_enchantee.jpg" alt="La Note Enchantée" class="card__img"/>
@@ -63,18 +71,21 @@
                     <h3 class="card__heading">La note enchantée</h3>
                     <p class="card__subheading">Charonne</p>
                     <i class="card__btnlike fa-solid fa-heart"></i>
+                    <i class="card__btnlike--fill card__btnlike fa-solid fa-heart"></i>
                 </a>
                 <a href="#" class="card">
                     <img src="images/restaurants/a_la_francaise.jpg" alt="A la Française" class="card__img"/>
                     <h3 class="card__heading">À la française</h3>
                     <p class="card__subheading">Cité Rouge</p>
                     <i class="card__btnlike fa-solid fa-heart"></i>
+                    <i class="card__btnlike--fill card__btnlike fa-solid fa-heart"></i>
                 </a>
                 <a href="#" class="card">
                     <img src="images/restaurants/le_délice_des_sens.jpg" alt="Le Délice des Sens" class="card__img"/>
                     <h3 class="card__heading">Le délice des sens</h3>
                     <p class="card__subheading">Folie-Méricourt</p>
                     <i class="card__btnlike fa-solid fa-heart"></i>
+                    <i class="card__btnlike--fill card__btnlike fa-solid fa-heart"></i>
                 </a>
             </section>
         </main>
