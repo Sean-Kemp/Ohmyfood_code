@@ -19,6 +19,7 @@ a {
 }
 .header__arrow {
   color: #000;
+  transition: all 200ms ease-in-out;
 }
 .header__arrow:hover {
   color: #99E2D0;
@@ -266,6 +267,8 @@ a {
   margin-top: 20px;
   border-radius: 20px;
   position: relative;
+  transform: scale(1);
+  transition: all 350ms;
   box-shadow: 0px 5px 10px #dedede;
 }
 .card__img {
@@ -293,26 +296,30 @@ a {
   right: 17px;
 }
 .card__btnlike {
-  z-index: 9999;
-  position: absolute;
-  top: 200px;
-  right: 20px;
-  color: #FFF;
   font-size: 25px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-}
-.card__btnlike:hover + .card__btnlike--fill {
-  transform: scale(1.2);
+  color: #fff;
+  position: absolute;
+  top: 35px;
+  right: 35px;
 }
 .card__btnlike--fill {
-  background: -webkit-gradient(linear, left bottom, right top, from(#FF79DA), to(#9356DC));
-  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(#FF79DA, #9356DC);
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: scale(0);
-  transition: transform 200ms;
-  -webkit-text-stroke-width: 0px;
+  -webkit-background-clip: text;
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+.card__btnlike--fill:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 .card__heading {
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -340,6 +347,16 @@ a {
   color: #000000;
   font-size: 16px;
 }
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 5px 10px #c5c5c5;
+}
+
+.card .card__btnlike, .card__btnlikelike--fill {
+  position: absolute;
+  top: 200px;
+  right: 20px;
+}
 
 /*---FOOTER---*/
 .footer {
@@ -366,6 +383,7 @@ a {
   font-weight: 400;
   font-size: 16px;
   color: #FFF;
+  transition: all 300ms;
 }
 .footer__item:hover {
   color: #99E2D0;
@@ -375,7 +393,7 @@ a {
   padding-right: 5px;
 }
 
-/*---LOCATION SPINNER---*/
+/*--- SPINNER---*/
 #bloc_page {
   -webkit-animation: end 3s ease-in-out;
           animation: end 3s ease-in-out;
@@ -498,53 +516,6 @@ a {
   }
 }
 /*---CARDS DECALAGE---*/
-@-webkit-keyframes decalage-shift {
-  from {
-    transform: translateY(-10%);
-  }
-}
-@keyframes decalage-shift {
-  from {
-    transform: translateY(-10%);
-  }
-}
-.one {
-  -webkit-animation: decalage-shift 500ms ease-in-out 2400ms forwards;
-          animation: decalage-shift 500ms ease-in-out 2400ms forwards;
-}
-
-.two {
-  -webkit-animation: decalage-shift 500ms ease-in-out 2700ms forwards;
-          animation: decalage-shift 500ms ease-in-out 2700ms forwards;
-}
-
-.three {
-  -webkit-animation: decalage-shift 500ms ease-in-out 2900ms forwards;
-          animation: decalage-shift 500ms ease-in-out 2900ms forwards;
-}
-
-.four {
-  -webkit-animation: decalage-shift 500ms ease-in-out 3100ms forwards;
-          animation: decalage-shift 500ms ease-in-out 3100ms forwards;
-}
-
-@-webkit-keyframes decalage-opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes decalage-opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 /*---MENU---*/
 .menu {
   margin-top: -50px;

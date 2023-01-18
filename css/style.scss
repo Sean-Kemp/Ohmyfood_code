@@ -5,6 +5,7 @@ $couleur-tertiaire: #99E2D0;
 $couleur-fond2: #f7f7f7;
 $couleur-textblack: #000000;
 $couleur-shadow: #dedede;
+$couleur-shadow-hover: darken($couleur-shadow, 10%);
 
 
 @mixin shadow {
@@ -57,7 +58,8 @@ a {
     }
     &__arrow {
         color: #000;
-        &:hover{
+        transition: all 200ms ease-in-out;
+        &:hover {
             color: $couleur-tertiaire;
         }
     }
@@ -271,6 +273,8 @@ a {
     margin-top: 20px;
     border-radius: 20px;
     position: relative;
+    transform: scale(1);
+    transition: all 350ms; 
     @include shadow();
     &__img {
         object-fit: cover;
@@ -290,25 +294,29 @@ a {
         right: 17px;
     }
     &__btnlike {
-        z-index: 9999;
+        font-size: 25px;
         position: absolute;
         top: 200px;
         right: 20px;
-        color: #FFF;
-        font-size: 25px;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black;
-        &:hover + .card__btnlike--fill {
-            transform: scale(1.2)
-        }
+        color: #fff;
         &--fill {
-            background: -webkit-gradient(linear, left bottom, right top, from($couleur-secondaire), to($couleur-primaire));
-	        -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient($couleur-secondaire, $couleur-primaire);
             background-clip: text;
-	        -webkit-text-fill-color: transparent;
-            transform: scale(0.0);
-            transition: transform 200ms;
-            -webkit-text-stroke-width: 0px;
+            -webkit-background-clip: text;
+            font-size: 25px;
+            position: absolute;
+            top: 200px;
+            right: 20px;
+            z-index: 1;
+            opacity: 0;
+            transition: all 200ms ease-in-out;
+            &:hover {
+                opacity: 1;
+                transform: scale(1.1);
+            }
         }
     }
     &__heading {
@@ -328,7 +336,16 @@ a {
         bottom: 15px;
         @include regular-text-700(16px)
     }
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 5px 10px $couleur-shadow-hover;
+    }
 }
+
+
+
+
+
 
 /*---FOOTER---*/
 .footer {
@@ -350,6 +367,7 @@ a {
     }
     &__item {
         @include minor-text-400(16px, #FFF);
+        transition: all 300ms;
         &:hover {
             color: $couleur-tertiaire;
         }
@@ -360,7 +378,7 @@ a {
     }
 }
 
-/*---LOCATION SPINNER---*/
+/*--- SPINNER---*/
 
 #bloc_page {
     animation: end 3s ease-in-out;
@@ -442,36 +460,7 @@ a {
 }
 
 /*---CARDS DECALAGE---*/
-@keyframes decalage-shift {
-    from {
-        transform: translateY(-10%);
-    }
-}
 
-.one {
-    animation: decalage-shift 500ms ease-in-out 2400ms forwards;
-}
-
-.two {
-    animation: decalage-shift 500ms ease-in-out 2700ms forwards;
-}
-
-.three {
-    animation: decalage-shift 500ms ease-in-out 2900ms forwards;
-}
-
-.four {
-    animation: decalage-shift 500ms ease-in-out 3100ms forwards;
-}
-
-@keyframes decalage-opacity {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 
 /*---MENU---*/
 .menu {
