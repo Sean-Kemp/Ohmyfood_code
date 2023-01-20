@@ -1,4 +1,8 @@
 /*---COULEURS---*/
+#bloc_page {
+  background-color: #f7f7f7;
+}
+
 /*---POLICES---*/
 a {
   text-decoration: none;
@@ -12,6 +16,7 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: #FFF;
 }
 .header__logo {
   width: 150px;
@@ -295,31 +300,10 @@ a {
   top: 17px;
   right: 17px;
 }
-.card__btnlike {
-  font-size: 25px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  color: #fff;
+.card__like {
   position: absolute;
-  top: 35px;
-  right: 35px;
-}
-.card__btnlike--fill {
-  color: transparent;
-  background-image: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 35px;
-  z-index: 1;
-  opacity: 0;
-  transition: all 200ms ease-in-out;
-}
-.card__btnlike--fill:hover {
-  opacity: 1;
-  transform: scale(1.1);
+  top: 190px;
+  right: 20px;
 }
 .card__heading {
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -327,6 +311,9 @@ a {
   color: #000000;
   font-size: 18px;
   padding: 15px 0px 8px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .card__subheading {
   padding: 0px 0px 16px 15px;
@@ -334,14 +321,14 @@ a {
   font-weight: 300;
   color: #000000;
   font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .card__subheading--underline {
   padding: 10px 0px 0px 0px;
 }
 .card__price {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: #000000;
@@ -352,10 +339,25 @@ a {
   box-shadow: 0px 5px 10px #c5c5c5;
 }
 
-.card .card__btnlike, .card__btnlikelike--fill {
-  position: absolute;
-  top: 200px;
-  right: 20px;
+.heart {
+  font-size: 25px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: transparent;
+}
+.heart--fill {
+  color: transparent;
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: 25px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+.heart--fill:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /*---FOOTER---*/
@@ -394,13 +396,6 @@ a {
 }
 
 /*--- SPINNER---*/
-#bloc_page {
-  -webkit-animation: end 3s ease-in-out;
-          animation: end 3s ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
 .spinner {
   width: 100%;
   height: 100%;
@@ -411,14 +406,16 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 2;
+  -webkit-animation: scaled 10ms ease 5s forwards, faded 2s ease-in-out 2.5s forwards;
+          animation: scaled 10ms ease 5s forwards, faded 2s ease-in-out 2.5s forwards;
 }
 .spinner__circle {
   stroke: #9356DC;
   stroke-width: 4;
   fill: none;
-  -webkit-animation: color 3s ease-in-out infinite, dash 1.5s ease-in-out infinite;
-          animation: color 3s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+  -webkit-animation: color 4s ease-in-out forwards, dash 1.5s ease-in-out infinite;
+          animation: color 4s ease-in-out forwards, dash 1.5s ease-in-out infinite;
   stroke-linecap: round;
 }
 .spinner__svg {
@@ -493,26 +490,42 @@ a {
     stroke-dashoffset: -124;
   }
 }
-@-webkit-keyframes end {
+@-webkit-keyframes faded {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   80% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
-@keyframes end {
+@keyframes faded {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   80% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scaled {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes scaled {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }
 /*---CARDS DECALAGE---*/
@@ -545,7 +558,68 @@ a {
   flex-direction: column;
   margin-bottom: 25px;
 }
+.menu__like {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+}
 
+.card-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.card-menu__info {
+  overflow: hidden;
+}
+.card-menu__price {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 100%;
+  padding: 0px 10px 30px 0px;
+  margin-left: auto;
+}
+.card-menu__tick {
+  background-color: #99E2D0;
+  height: 75px;
+  margin-right: -13%;
+  width: 13%;
+  transition: margin-right 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-menu:hover .card-menu__tick {
+  margin-right: 0px;
+}
+.card-menu:hover .card-menu__icon {
+  -webkit-animation: tick-rotate 0.5s ease-in-out forwards;
+          animation: tick-rotate 0.5s ease-in-out forwards;
+}
+.card-menu__icon {
+  color: #FFF;
+  font-size: 32px;
+}
+
+@-webkit-keyframes tick-rotate {
+  from {
+    transform: rotate(-270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tick-rotate {
+  from {
+    transform: rotate(-270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 /*---VERSION TABLETTE---*/
 @media all and (min-width: 768px) {
   .info-func-banners {
@@ -591,7 +665,7 @@ a {
     width: 45%;
     margin: 18px;
   }
-  .card--menu {
+  .card-menu {
     width: 90%;
   }
 }
@@ -641,7 +715,7 @@ a {
     width: 43%;
     margin: 20px;
   }
-  .card--menu {
+  .card-menu {
     width: 100%;
     margin: 10px;
   }
