@@ -308,6 +308,7 @@ a {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin-right: 10px;
     }
     &__subheading {
         padding: 0px 0px 16px 15px;
@@ -315,6 +316,7 @@ a {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin-right: 10px;
         &--underline {
             padding: 10px 0px 0px 0px;
         }
@@ -352,6 +354,11 @@ a {
             opacity: 1;
             transform: scale(1.1);
         }
+    }
+    &--empty {
+        position: absolute;
+        top: 32px;
+        right: 32px;
     }
 }
 
@@ -399,19 +406,21 @@ a {
     align-items: center;
     z-index: 2;
     animation: 
-        scaled 10ms ease 5s forwards,
-        faded 2s ease-in-out 2.5s forwards;
+        scaled 10ms ease 4s forwards,
+        faded 2s ease-in-out 2s forwards;
     &__circle {
         stroke: $couleur-primaire;
         stroke-width: 4;
         fill: none;
         animation: 
-            color 4s ease-in-out forwards, 
+            color 2.5s ease-in-out infinite, 
             dash 1.5s ease-in-out infinite;
         stroke-linecap: round;
+
     }
     &__svg {
         animation: rotate 1.5s linear infinite;
+        width: 100%;
     }
 } 
 
@@ -510,6 +519,7 @@ a {
         justify-content: space-between;
         align-items: center;
         padding: 30px 0px 30px 0px;
+        margin-right: 100px
     }
     &__title {
         @include menu-title(28px);
@@ -547,7 +557,7 @@ a {
         flex-direction: row;
         align-items: flex-end;
         height: 100%;
-        padding: 30px 10px 10px 0px;
+        padding: 38px 10px 10px 0px;
         margin-left: auto;
     }
     &__tick {
@@ -607,6 +617,12 @@ a {
         height: 350px;
         padding: 30px;
     }
+    .menubanner {
+        margin: 0px 0px -60px 0px;
+        &__img {
+            aspect-ratio: 5/2;
+        }
+    }
     .restos {
         padding: 35px 25px 25px 25px;
     }
@@ -617,23 +633,22 @@ a {
         justify-content: space-between;
         flex-wrap: wrap;
         &--menu {
-            justify-content: flex-start;
+            justify-content: space-around;
         }
     }
     .menu {
         &__course {
-            width: 50%;
+            width: 48%;
         }
     }
     .btn {
         padding: 0px 10px 0px 10px;
         &--small {
-            width: 50%;
-            height: 70px;
-            margin-top: 50px;
+            width: 45%;
+            margin-top: 30px;
         }
         &__container {
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -644,10 +659,16 @@ a {
         width: 48%;
         margin: 18px 0px 18px 0px;
         &-menu {
-            width: 90%;
+            width: 100%;
+            margin: 10px 0px 0px 0px;
             &__price {
                 align-items: center;
             }
+        }
+    }
+    .spinner {
+        &__svg {
+            width: 80%;
         }
     }
 }
@@ -667,9 +688,10 @@ a {
     .banner {
         display: flex;
         flex-direction: column;
-        margin: 20px;
+        margin: 20px 0px 20px 0px;
     }
     .locationbanner {
+        margin-left: 10px;
         border-radius: 20px;
     }
     .info-func-banners {
@@ -681,11 +703,9 @@ a {
         width: 100%;
     }
     .menubanner {
-        width: 62.5%;
-        margin: 0px 0px -60px 40px;
+        margin: 0px 0px -60px 0px;
         &__img {
-            border-radius: 20px;
-            aspect-ratio: 5/2;
+            aspect-ratio: 6/2;
         }
     }
     .restos {
@@ -697,35 +717,52 @@ a {
     .container_cards {
         margin: 10px 0px 0px 0px;
         &--menu {
-            flex-direction: column;
-            margin-top: 0px;
-        }
-    }
-    .card {
-        &-menu {
-            width: 100%;
-            margin: 10px;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-right: 0px;
         }
     }
     .menu {
-        width: 60%;
-        margin: 20px 40px 40px 80px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 20px 0px 0px 0px;
         border-radius: 20px;
+        padding: 10px;
         &__course {
-            width: 95%;
+            width: 48%;
         } 
         &__heading {
-            padding-bottom: 20px;
+            padding: 20px 0px 20px 20px;
         }
     }
     .btn {
         &--small {
-            width: 60%;
+            width: 45%;
             height: 50px;
             margin-top: 30px;
         }
         &__container {
             width: 100%;
+        }
+    }
+    .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        height: auto;
+        &__list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        &__item {
+            margin-left: 30px;
+        }
+    }
+    .spinner {
+        &__svg {
+            width: 60%;
         }
     }
 }

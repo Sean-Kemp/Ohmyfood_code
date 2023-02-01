@@ -313,6 +313,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: 10px;
 }
 .card__subheading {
   padding: 0px 0px 16px 15px;
@@ -323,6 +324,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: 10px;
 }
 .card__subheading--underline {
   padding: 10px 0px 0px 0px;
@@ -362,6 +364,11 @@ a {
 .heart--fill:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+.heart--empty {
+  position: absolute;
+  top: 32px;
+  right: 32px;
 }
 
 /*---FOOTER---*/
@@ -411,20 +418,21 @@ a {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  -webkit-animation: scaled 10ms ease 5s forwards, faded 2s ease-in-out 2.5s forwards;
-          animation: scaled 10ms ease 5s forwards, faded 2s ease-in-out 2.5s forwards;
+  -webkit-animation: scaled 10ms ease 4s forwards, faded 2s ease-in-out 2s forwards;
+          animation: scaled 10ms ease 4s forwards, faded 2s ease-in-out 2s forwards;
 }
 .spinner__circle {
   stroke: #9356DC;
   stroke-width: 4;
   fill: none;
-  -webkit-animation: color 4s ease-in-out forwards, dash 1.5s ease-in-out infinite;
-          animation: color 4s ease-in-out forwards, dash 1.5s ease-in-out infinite;
+  -webkit-animation: color 2.5s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+          animation: color 2.5s ease-in-out infinite, dash 1.5s ease-in-out infinite;
   stroke-linecap: round;
 }
 .spinner__svg {
   -webkit-animation: rotate 1.5s linear infinite;
           animation: rotate 1.5s linear infinite;
+  width: 100%;
 }
 
 @-webkit-keyframes rotate {
@@ -578,6 +586,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 30px 0px 30px 0px;
+  margin-right: 100px;
 }
 .menu__title {
   font-family: Shrikhand, Arial, Helvetica, sans-serif;
@@ -630,7 +639,7 @@ a {
   flex-direction: row;
   align-items: flex-end;
   height: 100%;
-  padding: 30px 10px 10px 0px;
+  padding: 38px 10px 10px 0px;
   margin-left: auto;
 }
 .card-menu__tick {
@@ -694,6 +703,12 @@ a {
     height: 350px;
     padding: 30px;
   }
+  .menubanner {
+    margin: 0px 0px -60px 0px;
+  }
+  .menubanner__img {
+    aspect-ratio: 5/2;
+  }
   .restos {
     padding: 35px 25px 25px 25px;
   }
@@ -705,21 +720,20 @@ a {
     flex-wrap: wrap;
   }
   .container_cards--menu {
-    justify-content: flex-start;
+    justify-content: space-around;
   }
   .menu__course {
-    width: 50%;
+    width: 48%;
   }
   .btn {
     padding: 0px 10px 0px 10px;
   }
   .btn--small {
-    width: 50%;
-    height: 70px;
-    margin-top: 50px;
+    width: 45%;
+    margin-top: 30px;
   }
   .btn__container {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -730,10 +744,14 @@ a {
     margin: 18px 0px 18px 0px;
   }
   .card-menu {
-    width: 90%;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
   }
   .card-menu__price {
     align-items: center;
+  }
+  .spinner__svg {
+    width: 80%;
   }
 }
 /*---VERSION DESKTOP---*/
@@ -749,9 +767,10 @@ a {
   .banner {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 20px 0px 20px 0px;
   }
   .locationbanner {
+    margin-left: 10px;
     border-radius: 20px;
   }
   .info-func-banners {
@@ -763,12 +782,10 @@ a {
     width: 100%;
   }
   .menubanner {
-    width: 62.5%;
-    margin: 0px 0px -60px 40px;
+    margin: 0px 0px -60px 0px;
   }
   .menubanner__img {
-    border-radius: 20px;
-    aspect-ratio: 5/2;
+    aspect-ratio: 6/2;
   }
   .restos {
     background-color: #FFF;
@@ -780,30 +797,47 @@ a {
     margin: 10px 0px 0px 0px;
   }
   .container_cards--menu {
-    flex-direction: column;
-    margin-top: 0px;
-  }
-  .card-menu {
-    width: 100%;
-    margin: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right: 0px;
   }
   .menu {
-    width: 60%;
-    margin: 20px 40px 40px 80px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px 0px 0px 0px;
     border-radius: 20px;
+    padding: 10px;
   }
   .menu__course {
-    width: 95%;
+    width: 48%;
   }
   .menu__heading {
-    padding-bottom: 20px;
+    padding: 20px 0px 20px 20px;
   }
   .btn--small {
-    width: 60%;
+    width: 45%;
     height: 50px;
     margin-top: 30px;
   }
   .btn__container {
     width: 100%;
+  }
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: auto;
+  }
+  .footer__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .footer__item {
+    margin-left: 30px;
+  }
+  .spinner__svg {
+    width: 60%;
   }
 }/*# sourceMappingURL=style.css.map */
