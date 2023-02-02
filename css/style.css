@@ -84,7 +84,7 @@ a {
 .infobanner {
   box-sizing: border-box;
   width: 100%;
-  height: 270px;
+  height: 300px;
   display: flex; /*repeat rule*/
   flex-direction: column;
   text-align: center;
@@ -113,6 +113,7 @@ a {
   border: none;
   border-radius: 30px;
   margin-bottom: 40px;
+  padding: 0px 10px 0px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,7 +314,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 .card__subheading {
   padding: 0px 0px 16px 15px;
@@ -324,7 +325,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 .card__subheading--underline {
   padding: 10px 0px 0px 0px;
@@ -792,6 +793,9 @@ a {
     border-radius: 20px;
     margin: 20px;
     padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
   .container_cards {
     margin: 10px 0px 0px 0px;

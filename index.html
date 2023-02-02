@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/reset.css" />
-	    <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap" rel="stylesheet">
@@ -21,14 +21,14 @@
         <div id="bloc_page">
 <!--HEADER-->
             <header class="header">
-                <img src="images/logo/ohmyfood.png" alt="OhMyFood Logo" class="header__logo" />
+                <img src="images/logo/ohmyfood.png" alt="OhMyFood Logo" class="header__logo">
             </header>
             <main class="main">
 <!--BANNER-->
-                <section class="banner">
+                <div class="banner">
                     <aside class="locationbanner">
                         <i class="locationbanner__icon fa-solid fa-location-dot"></i>
-                        <input type="text" role="textbox" placeholder="Paris, Belleville" class="locationbanner__field"/>                                                    
+                        <input type="text" placeholder="Paris, Belleville" class="locationbanner__field">                                                    
                     </aside>
                     <div class="info-func-banners">
                         <article class="infobanner">
@@ -43,26 +43,29 @@
                             <div class="functionbanner__container">
                                 <div class="functionstep">
                                     <p class="functionstep__number">1</p>
-                                    <p class="functionstep__text"><i class="functionstep__icon fa-solid fa-mobile-screen-button"></i>Choisissez un restaurant</p>
+                                    <i class="functionstep__icon fa-solid fa-mobile-screen-button"></i>
+                                    <p class="functionstep__text">Choisissez un restaurant</p>
                                 </div>
                                 <div class="functionstep">
                                     <p class="functionstep__number">2</p>
-                                    <p class="functionstep__text"><i class="functionstep__icon fa-solid fa-list-ul"></i>Composez votre menu</p>
+                                    <i class="functionstep__icon fa-solid fa-list-ul"></i>
+                                    <p class="functionstep__text">Composez votre menu</p>
                                 </div>
                                 <div class="functionstep">
                                     <p class="functionstep__number">3</p>
-                                    <p class="functionstep__text"><i class="functionstep__icon fa-solid fa-store"></i>Dégustez au restaurant</p>
+                                    <i class="functionstep__icon fa-solid fa-store"></i>
+                                    <p class="functionstep__text">Dégustez au restaurant</p>
                                 </div>
                             </div>                                                        
                         </article>
                     </div>
-                </section>
+                </div>
 <!--RESTAURANTS-->
                 <section id="restos" class="restos">
                     <h2 class="restos__heading">Restaurants</h2>
                     <div class="container_cards">
                         <a href="La_palette_du_gout.html" class="card card-accueil">
-                            <img src="images/restaurants/la_palette_du_gout.jpg" alt="La Palette du Goût" class="card__img"/>
+                            <img src="images/restaurants/la_palette_du_gout.jpg" alt="La Palette du Goût" class="card__img">
                             <p class="card__new">Nouveau</p>
                             <h3 class="card__heading">La palette du goût</h3>
                             <p class="card__subheading">Ménilmontant</p>
@@ -70,7 +73,7 @@
                             <i class="card__like heart--fill fa-solid fa-heart"></i>
                         </a>
                         <a href="La_note_enchantee.html" class="card card-accueil">
-                            <img src="images/restaurants/la_note_enchantee.jpg" alt="La Note Enchantée" class="card__img"/>
+                            <img src="images/restaurants/la_note_enchantee.jpg" alt="La Note Enchantée" class="card__img">
                             <p class="card__new">Nouveau</p>
                             <h3 class="card__heading">La note enchantée</h3>
                             <p class="card__subheading">Charonne</p>
@@ -78,14 +81,14 @@
                             <i class="card__like heart--fill fa-solid fa-heart"></i>
                         </a>
                         <a href="A_la_francaise.html" class="card card-accueil">
-                            <img src="images/restaurants/a_la_francaise.jpg" alt="A la Française" class="card__img"/>
+                            <img src="images/restaurants/a_la_francaise.jpg" alt="A la Française" class="card__img">
                             <h3 class="card__heading">À la française</h3>
                             <p class="card__subheading">Cité Rouge</p>
                             <i class="card__like heart fa-solid fa-heart"></i>
                             <i class="card__like heart--fill fa-solid fa-heart"></i>
                         </a>
                         <a href="Le_delice_des_sens.html" class="card card-accueil">
-                            <img src="images/restaurants/le_délice_des_sens.jpg" alt="Le Délice des Sens" class="card__img"/>
+                            <img src="images/restaurants/le_delice_des_sens.jpg" alt="Le Délice des Sens" class="card__img">
                             <h3 class="card__heading">Le délice des sens</h3>
                             <p class="card__subheading">Folie-Méricourt</p>
                             <i class="card__like heart fa-solid fa-heart"></i>
@@ -105,9 +108,9 @@
                     <li>
                         <a href="#" class="footer__item"><i class="fa-solid fa-handshake-angle footer__icon"></i>
                         Devenir partenaire</a>
-                        <li><a href="#" class="footer__item">Mentions légales</a></li>
-                        <li><a href="mailto:NOMDUMAIL@MAIL.COM" class="footer__item">Contact</a></li>
                     </li>
+                    <li><a href="#" class="footer__item">Mentions légales</a></li>
+                    <li><a href="mailto:NOMDUMAIL@MAIL.COM" class="footer__item">Contact</a></li>
                 </ul>
             </footer>
         </div>
